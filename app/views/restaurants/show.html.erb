@@ -1,8 +1,8 @@
 <h1> <%= @restaurant.name %> </h1>
 
-<p> <%= @restaurant.address %> </p>
-<p> <%= @restaurant.category %> </p>
-<p> <%= @restaurant.phone_number %> </p>
+<p> Adress: <%= @restaurant.address %> </p>
+<p> Cuisine: <%= @restaurant.category %> </p>
+<p> Phone number: <%= @restaurant.phone_number %> </p>
 
 
 <h4>Reviews</h4>
@@ -10,13 +10,14 @@
 <p><%= review.content %></p>
 <% end %>
 
-<p><%= link_to "Go back to list", restaurants_path  %></p>
 
 
-<h1>Add a review for <%= @restaurant.name %> </h1>
+<h4>Add a review for <%= @restaurant.name %> </h4>
 
 <%= simple_form_for([@restaurant, @review]) do |f| %>
   <%= f.input :rating, input_html: { min: '0', max: '5', step: '1'} %>
   <%= f.input :content %>
   <%= f.submit "Add review", class: "btn btn-primary" %>
 <% end %>
+<br>
+<p><%= link_to "Go back to list", restaurants_path  %></p>
